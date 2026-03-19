@@ -8,9 +8,11 @@ import java.util.Optional;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
-    // Um método extra muito útil: buscar pelo CPF
+    // Buscar pelo CPF
     Optional<Cliente> findByCpf(String cpf);
 
     // Verificar se um e-mail já existe antes de cadastrar
     boolean existsByEmail(String email);
+
+    boolean existsByCpf(String cpf);
 }

@@ -10,7 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // Libera todos os endpoints (/api/vendas, /api/veiculos, etc)
-                .allowedOrigins("*") // No futuro, troque o "*" pela URL do seu front (ex: http://localhost:3000)
+                .allowedOrigins("*") // Trocar o "*" pela URL do front (ex: http://localhost:3000)
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Métodos permitidos
                 .allowedHeaders("*"); // Libera todos os cabeçalhos (essencial para JSON)
     }

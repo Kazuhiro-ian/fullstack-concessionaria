@@ -22,11 +22,17 @@ public class ClienteService {
     }
 
     public Cliente salvar(Cliente cliente) {
-        // Regra de Negócio: Verificar se o CPF já existe
+        // 1. Regra de Negócio: Verificar se o CPF já existe
         Optional<Cliente> clienteExistente = repository.findByCpf(cliente.getCpf());
 
         if (clienteExistente.isPresent() && !clienteExistente.get().getId().equals(cliente.getId())) {
             throw new RuntimeException("Já existe um cliente cadastrado com este CPF");
+        }
+
+        // 2. Nova Validação de E-mail (usando o existsByEmail que você criou)
+        if (repository.existsByEmail(cliente.getEmail())) {
+            // Se for uma atualização, precisa-se checar se o e-mail pertence a outro ID
+            throw new RuntimeException("Este e-mail já está em uso por outro cliente");
         }
 
         return repository.save(cliente);

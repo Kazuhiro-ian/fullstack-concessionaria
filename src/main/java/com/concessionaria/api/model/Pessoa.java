@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
-@MappedSuperclass // Diz ao JPA que esta classe é apenas um modelo para outras
+@MappedSuperclass
 @Data
 public abstract class Pessoa {
 

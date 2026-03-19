@@ -25,9 +25,7 @@ public class VendaService {
         return vendaRepository.findAll();
     }
 
-    /**
-     * Realiza a venda validando o ENUM de Status do Veículo.
-     */
+     // Realiza a venda validando o ENUM de Status do Veículo.
     @Transactional
     public Venda realizarVenda(Venda venda) {
         // 1. Localizar o veículo no banco
@@ -41,7 +39,7 @@ public class VendaService {
         }
 
         // 3. Automação de Dados
-        // Buscamos o preço real do cadastro do veículo para evitar fraudes no JSON
+        // Buscar o preço real do cadastro do veículo para evitar fraudes no JSON
         venda.setValorTotal(veiculo.getPreco());
         venda.setDataVenda(LocalDateTime.now());
 

@@ -26,8 +26,6 @@ public class VendaController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Venda realizarVenda(@RequestBody Venda venda) {
-        // Aqui o Controller apenas repassa os dados para o Service,
-        // onde a regra do Enum (DISPONIVEL -> VENDIDO) será executada.
         return service.realizarVenda(venda);
     }
 }

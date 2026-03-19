@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "tb_veiculos")
-@Data // Gera Getters, Setters, toString, Equals e HashCode automaticamente
+@Data
 public class Veiculo {
 
     @Id
@@ -33,6 +33,7 @@ public class Veiculo {
 
     @NotNull
     @DecimalMin(value = "0.0", inclusive = false)
+    @Positive(message = "O preço deve ser maior que zero")
     private BigDecimal preco;
 
     @Enumerated(EnumType.STRING)

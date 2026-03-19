@@ -17,20 +17,17 @@ public class VeiculoController {
     @Autowired
     private VeiculoService service;
 
-    // Listar todos: GET http://localhost:8080/api/veiculos
     @GetMapping
     public List<Veiculo> listar() {
         return service.listarTodos();
     }
 
-    // Cadastrar: POST http://localhost:8080/api/veiculos
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Veiculo adicionar(@Valid @RequestBody Veiculo veiculo) {
         return service.salvar(veiculo);
     }
 
-    // Buscar por ID: GET http://localhost:8080/api/veiculos/{id}
     @GetMapping("/{id}")
     public ResponseEntity<Veiculo> buscar(@PathVariable Long id) {
         return service.buscarPorId(id)
@@ -38,7 +35,6 @@ public class VeiculoController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // Atualizar: PUT http://localhost:8080/api/veiculos/{id}
     @PutMapping("/{id}")
     public ResponseEntity<Veiculo> atualizar(@PathVariable Long id, @Valid @RequestBody Veiculo veiculo) {
         if (!service.buscarPorId(id).isPresent()) {
@@ -49,7 +45,6 @@ public class VeiculoController {
         return ResponseEntity.ok(veiculoAtualizado);
     }
 
-    // Excluir: DELETE http://localhost:8080/api/veiculos/{id}
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> remover(@PathVariable Long id) {
         if (!service.buscarPorId(id).isPresent()) {

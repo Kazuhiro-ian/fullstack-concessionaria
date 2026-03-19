@@ -13,12 +13,12 @@ public class VeiculoService {
     @Autowired
     private VeiculoRepository repository;
 
-    // Método para listar todos
+    // Listar todos
     public List<Veiculo> listarTodos() {
         return repository.findAll();
     }
 
-    // Método para salvar (cadastrar ou editar)
+    // Salvar (cadastrar ou editar)
     public Veiculo salvar(Veiculo veiculo) {
         return repository.save(veiculo);
     }

@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Table(name = "tb_clientes")
 @Data
-@EqualsAndHashCode(callSuper = true) // Importante para o Lombok considerar os campos da Pessoa
+@EqualsAndHashCode(callSuper = true)
 public class Cliente extends Pessoa {
     private String endereco;
 }

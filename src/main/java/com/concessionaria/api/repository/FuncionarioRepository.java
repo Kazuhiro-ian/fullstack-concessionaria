@@ -8,7 +8,7 @@ import java.util.Optional;
 @Repository
 public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> {
 
-    // Buscar funcionário pela matrícula (campo específico que criamos)
+    // Buscar funcionário pela matrícula
     Optional<Funcionario> findByMatricula(String matricula);
 
     // Buscar funcionário pelo CPF

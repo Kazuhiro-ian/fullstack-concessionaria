@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
 
-@RestControllerAdvice // Esta anotação diz ao Spring: "Assista todos os Controllers"
+@RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    // Este método captura erros de lógica (como o do VendaService)
+    // Captura erros de lógica (como o do VendaService)
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ErroResposta> tratarErroDeNegocio(RuntimeException ex) {
         ErroResposta erro = new ErroResposta(
@@ -23,7 +23,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
     }
 
-    // Este captura erros de banco de dados (ex: CPF duplicado)
+    // Captura erros de banco de dados (ex: CPF duplicado)
     @ExceptionHandler(org.springframework.dao.DataIntegrityViolationException.class)
     public ResponseEntity<ErroResposta> tratarErroBanco(Exception ex) {
         ErroResposta erro = new ErroResposta(
@@ -32,5 +32,20 @@ public class GlobalExceptionHandler {
                 LocalDateTime.now()
         );
         return ResponseEntity.status(HttpStatus.CONFLICT).body(erro);
+    }
+
+    @ExceptionHandler(org.springframework.web.bind.MethodArgumentNotValidException.class)
+    public ResponseEntity<ErroResposta> tratarErroValidacao(org.springframework.web.bind.MethodArgumentNotValidException ex) {
+        String mensagemCustomizada = ex.getBindingResult()
+                .getFieldErrors()
+                .get(0)
+                .getDefaultMessage();
+
+        ErroResposta erro = new ErroResposta(
+                HttpStatus.BAD_REQUEST.value(),
+                mensagemCustomizada,
+                LocalDateTime.now()
+        );
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
     }
 }

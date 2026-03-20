@@ -20,6 +20,9 @@ function carregarVeiculos() {
                             ${v.status}
                         </span>
                     </td>
+                    <td>
+                        <button onclick="deletarVeiculo(${v.id})" class="btn-delete">Excluir</button>
+                     </td>
                 `;
                 tbody.appendChild(row);
             });
@@ -63,3 +66,20 @@ form.addEventListener('submit', (event) => {
     })
     .catch(err => alert("Erro: " + err.message));
 });
+
+function deletarVeiculo(id) {
+    if (confirm("Tem certeza que deseja excluir este veículo?")) {
+        fetch(`${URL_API}/${id}`, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("Veículo removido com sucesso!");
+                carregarVeiculos(); // Isso atualiza a lista na tela
+            } else {
+                alert("Erro ao tentar excluir o veículo.");
+            }
+        })
+        .catch(err => console.error("Erro na requisição:", err));
+    }
+}

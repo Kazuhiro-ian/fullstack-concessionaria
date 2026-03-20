@@ -3,18 +3,20 @@
    ========================================= */
 
    :root {
-    /* Paleta de Cores Padrão (Módulo Clientes - Roxo/Índigo) */
-    --primary-color: #6366f1;      /* Roxo/Índigo principal */
-    --primary-hover: #4f46e5;      /* Roxo escuro (hover) */
-    --bg-color: #f3f4f6;           /* Fundo da página */
-    --card-bg: #ffffff;            /* Fundo dos cards */
-    --text-main: #1f2937;          /* Texto principal escuro */
-    --text-muted: #6b7280;         /* Texto secundário/Labels */
-    --border-color: #e5e7eb;       /* Bordas de inputs e tabelas */
+    /* Paleta de Cores Padrão (Módulo Funcionários - Azul Petróleo / Teal) */
+    --primary-color: #0f766e;      /* Teal principal */
+    --primary-hover: #115e59;      /* Teal escuro (hover) */
+    --bg-color: #f3f4f6;           
+    --card-bg: #ffffff;            
+    --text-main: #1f2937;          
+    --text-muted: #6b7280;         
+    --border-color: #e5e7eb;       
     
-    /* Cores Semânticas (Ações e Status) */
+    /* Cores Semânticas */
     --danger-color: #ef4444;
     --danger-bg: #fee2e2;
+    --badge-bg: #ccfbf1;           /* Fundo do badge para o Cargo */
+    --badge-text: #0f766e;         /* Texto do badge para o Cargo */
     
     /* Sombras e Bordas */
     --radius-md: 8px;
@@ -155,7 +157,7 @@ input:focus {
     outline: none;
     border-color: var(--primary-color);
     background-color: var(--card-bg);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15); /* Efeito Focus Ring (Roxo claro) */
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15); /* Efeito Focus Ring (Teal claro) */
 }
 
 .form-actions {
@@ -211,6 +213,16 @@ input:focus {
 
 .data-table tbody tr:hover {
     background-color: #f9fafb;
+}
+
+/* --- BADGE DE CARGO (Exclusivo para Funcionários) --- */
+.badge-cargo {
+    background-color: var(--badge-bg);
+    color: var(--badge-text);
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
 /* --- BOTÃO DE AÇÃO (Tabela) --- */

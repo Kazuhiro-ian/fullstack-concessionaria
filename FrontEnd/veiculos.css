@@ -3,10 +3,10 @@
    ========================================= */
 
    :root {
-    /* Paleta de Cores Padrão (Módulo Clientes - Roxo/Índigo) */
-    --primary-color: #6366f1;      /* Roxo/Índigo principal */
-    --primary-hover: #4f46e5;      /* Roxo escuro (hover) */
-    --bg-color: #f3f4f6;           /* Fundo da página */
+    /* Paleta de Cores Padrão (Módulo Veículos - Azul/Cinza) */
+    --primary-color: #3b82f6;      /* Azul principal */
+    --primary-hover: #2563eb;      /* Azul escuro (hover) */
+    --bg-color: #f3f4f6;           /* Fundo da página (Cinza muito claro) */
     --card-bg: #ffffff;            /* Fundo dos cards */
     --text-main: #1f2937;          /* Texto principal escuro */
     --text-muted: #6b7280;         /* Texto secundário/Labels */
@@ -15,6 +15,8 @@
     /* Cores Semânticas (Ações e Status) */
     --danger-color: #ef4444;
     --danger-bg: #fee2e2;
+    --success-color: #10b981;
+    --success-bg: #d1fae5;
     
     /* Sombras e Bordas */
     --radius-md: 8px;
@@ -39,7 +41,7 @@ body {
 
 /* --- NAVBAR --- */
 .navbar {
-    background-color: #111827;
+    background-color: #111827; /* Fundo bem escuro pra destacar */
     padding: 1rem 0;
     box-shadow: var(--shadow-md);
 }
@@ -102,7 +104,7 @@ body {
     margin-top: 0.5rem;
 }
 
-/* --- CARDS --- */
+/* --- CARDS (Onde a mágica acontece) --- */
 .card-section {
     background-color: var(--card-bg);
     border-radius: var(--radius-lg);
@@ -155,12 +157,13 @@ input:focus {
     outline: none;
     border-color: var(--primary-color);
     background-color: var(--card-bg);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15); /* Efeito Focus Ring (Roxo claro) */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); /* Efeito Focus Ring */
 }
 
 .form-actions {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; /* Joga o botão para a direita */
+    margin-top: 1rem;
 }
 
 /* Botão Principal */
@@ -181,7 +184,7 @@ input:focus {
 
 /* --- TABELAS --- */
 .table-responsive {
-    overflow-x: auto;
+    overflow-x: auto; /* Permite scroll no celular se a tabela for grande */
 }
 
 .data-table {
@@ -210,7 +213,26 @@ input:focus {
 }
 
 .data-table tbody tr:hover {
-    background-color: #f9fafb;
+    background-color: #f9fafb; /* Destaque ao passar o mouse na linha */
+}
+
+/* --- BADGES (Status) --- */
+.badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px; /* Formato pílula */
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badge-success {
+    background-color: var(--success-bg);
+    color: var(--success-color);
+}
+
+.badge-danger {
+    background-color: var(--danger-bg);
+    color: var(--danger-color);
 }
 
 /* --- BOTÃO DE AÇÃO (Tabela) --- */

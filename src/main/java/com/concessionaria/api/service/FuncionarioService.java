@@ -35,4 +35,12 @@ public class FuncionarioService {
     public Optional<Funcionario> buscarPorId(Long id) {
         return repository.findById(id);
     }
+
+    public void excluir(Long id) {
+        // É uma boa prática verificar se existe antes de tentar deletar
+        if (!repository.existsById(id)) {
+            throw new RuntimeException("Funcionário não encontrado com o ID: " + id);
+        }
+        repository.deleteById(id);
+    }
 }

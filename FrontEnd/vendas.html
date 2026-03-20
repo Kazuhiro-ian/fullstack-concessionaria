@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concessionária - Registro de Venda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="vendas.css">
+</head>
+<body>
+    
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <span class="logo">🚗 AutoGestão</span>
+                <div class="nav-links">
+                    <a href="veiculos.html">Veículos</a>
+                    <a href="clientes.html">Clientes</a>
+                    <a href="funcionarios.html">Funcionários</a>
+                    <a href="vendas.html" class="active">Vendas</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <div class="page-header">
+            <h1>Registro de Vendas</h1>
+            <p>Efetue novas vendas e consulte o histórico de transações.</p>
+        </div>
+
+        <section class="card-section">
+            <h2 class="section-title">Finalizar Venda</h2>
+            <form id="form-venda">
+                <div class="input-grid">
+                    
+                    <div class="input-group">
+                        <label for="select-veiculo">Veículo</label>
+                        <select id="select-veiculo" required>
+                            <option value="">Selecione um Veículo...</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="select-cliente">Cliente</label>
+                        <select id="select-cliente" required>
+                            <option value="">Selecione o Cliente...</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="select-vendedor">Vendedor</label>
+                        <select id="select-vendedor" required>
+                            <option value="">Selecione o Funcionário...</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="valorTotal">Valor da Venda (R$)</label>
+                        <input type="number" id="valorTotal" step="0.01" placeholder="Calculado automaticamente" readonly style="background-color: #e5e7eb; color: #6b7280; cursor: not-allowed;">
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Confirmar Venda</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="card-section">
+            <h2 class="section-title">Histórico de Vendas</h2>
+            <div class="table-responsive">
+                <table class="data-table" id="tabela-vendas">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Data</th>
+                            <th>Veículo</th>
+                            <th>Cliente</th>
+                            <th>Vendedor</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+    
+    <script src="vendas.js"></script>
+</body>
+</html>

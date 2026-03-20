@@ -3,18 +3,14 @@
    ========================================= */
 
    :root {
-    /* Paleta de Cores Padrão (Módulo Clientes - Roxo/Índigo) */
-    --primary-color: #6366f1;      /* Roxo/Índigo principal */
-    --primary-hover: #4f46e5;      /* Roxo escuro (hover) */
-    --bg-color: #f3f4f6;           /* Fundo da página */
-    --card-bg: #ffffff;            /* Fundo dos cards */
-    --text-main: #1f2937;          /* Texto principal escuro */
-    --text-muted: #6b7280;         /* Texto secundário/Labels */
-    --border-color: #e5e7eb;       /* Bordas de inputs e tabelas */
-    
-    /* Cores Semânticas (Ações e Status) */
-    --danger-color: #ef4444;
-    --danger-bg: #fee2e2;
+    /* Paleta de Cores Padrão (Módulo Vendas - Verde Esmeralda) */
+    --primary-color: #059669;      /* Verde Esmeralda principal */
+    --primary-hover: #047857;      /* Verde Escuro (hover) */
+    --bg-color: #f3f4f6;           
+    --card-bg: #ffffff;            
+    --text-main: #1f2937;          
+    --text-muted: #6b7280;         
+    --border-color: #e5e7eb;       
     
     /* Sombras e Bordas */
     --radius-md: 8px;
@@ -141,7 +137,8 @@ body {
     margin-bottom: 0.5rem;
 }
 
-input {
+/* Adicionando 'select' junto com 'input' para padronizar os dropdowns */
+input, select {
     padding: 0.75rem 1rem;
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
@@ -149,13 +146,22 @@ input {
     color: var(--text-main);
     transition: all 0.2s;
     background-color: #f9fafb;
+    /* Faz o select ter a mesma altura e aparência do input */
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* Ícone de setinha para o select */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
 }
 
-input:focus {
+input:focus, select:focus {
     outline: none;
     border-color: var(--primary-color);
     background-color: var(--card-bg);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15); /* Efeito Focus Ring (Roxo claro) */
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15); /* Efeito Focus Ring (Verde claro) */
 }
 
 .form-actions {
@@ -213,20 +219,8 @@ input:focus {
     background-color: #f9fafb;
 }
 
-/* --- BOTÃO DE AÇÃO (Tabela) --- */
-.btn-delete {
-    background-color: var(--card-bg);
-    color: var(--danger-color);
-    border: 1px solid var(--danger-color);
-    padding: 0.4rem 0.75rem;
-    border-radius: var(--radius-md);
-    font-size: 0.85rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.btn-delete:hover {
-    background-color: var(--danger-color);
-    color: white;
+/* --- DESTAQUE DE VALOR (Exclusivo para Vendas) --- */
+.price-tag {
+    font-weight: 700;
+    color: var(--primary-color);
 }

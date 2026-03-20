@@ -34,4 +34,13 @@ public class FuncionarioController {
     public Funcionario adicionar(@Valid @RequestBody Funcionario funcionario) {
         return service.salvar(funcionario);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> remover(@PathVariable Long id) {
+        if (service.buscarPorId(id).isPresent()) {
+            service.excluir(id);
+            return ResponseEntity.noContent().build(); // Retorna Status 204 (Sucesso sem conteúdo)
+        }
+        return ResponseEntity.notFound().build(); // Retorna Status 404 se o ID não existir
+    }
 }

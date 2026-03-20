@@ -16,7 +16,7 @@ function carregarVeiculos() {
                     <td>${v.ano}</td>
                     <td>R$ ${v.preco.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</td>
                     <td>
-                        <span class="${v.status === 'VENDIDO' ? 'status-vendido' : 'status-disponivel'}">
+                        <span class="badge ${v.status === 'VENDIDO' ? 'badge-danger' : 'badge-success'}">
                             ${v.status}
                         </span>
                     </td>

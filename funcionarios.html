@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concessionária - Gestão de Funcionários</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="funcionarios.css"> 
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <span class="logo">🚗 AutoGestão</span>
+                <div class="nav-links">
+                    <a href="veiculos.html">Veículos</a>
+                    <a href="clientes.html">Clientes</a>
+                    <a href="funcionarios.html" class="active">Funcionários</a>
+                    <a href="vendas.html">Vendas</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <div class="page-header">
+            <h1>Gestão de Funcionários</h1>
+            <p>Controle o quadro de colaboradores e acessos da concessionária.</p>
+        </div>
+
+        <section class="card-section">
+            <h2 class="section-title">Cadastrar Novo Funcionário</h2>
+            <form id="form-funcionario">
+                
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" placeholder="Ex: Maria Souza" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="cpf">CPF (Apenas números)</label>
+                        <input type="text" id="cpf" placeholder="Ex: 12345678900" required maxlength="11">
+                    </div>
+                    <div class="input-group">
+                        <label for="email">E-mail Corporativo</label>
+                        <input type="email" id="email" placeholder="Ex: maria@concessionaria.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="telefone">Telefone (DDD + Número)</label>
+                        <input type="text" id="telefone" placeholder="Ex: 11999998888">
+                    </div>
+                    <div class="input-group">
+                        <label for="cargo">Cargo</label>
+                        <input type="text" id="cargo" placeholder="Ex: Vendedor Sênior" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="matricula">Matrícula</label>
+                        <input type="text" id="matricula" placeholder="Ex: MAT-001" required>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Salvar Funcionário</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="card-section">
+            <h2 class="section-title">Quadro de Funcionários</h2>
+            <div class="search-container">
+                <div class="input-group">
+                    <input type="text" id="input-busca" placeholder="Pesquisar por nome, matrícula ou cargo..." onkeyup="filtrarTabela()">
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="data-table" id="tabela-funcionarios">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Matrícula</th>
+                            <th>Cargo</th>
+                            <th>E-mail</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="funcionarios.js"></script>
+</body>
+</html>

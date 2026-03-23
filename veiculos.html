@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concessionária - Veículos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="veiculos.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <span class="logo">🚗 AutoGestão</span>
+                <div class="nav-links">
+                    <a href="veiculos.html" class="active">Veículos</a>
+                    <a href="clientes.html">Clientes</a>
+                    <a href="funcionarios.html">Funcionários</a>
+                    <a href="vendas.html">Vendas</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="container">
+        
+        <div class="page-header">
+            <h1>Gestão de Estoque</h1>
+            <p>Gerencie o cadastro e a situação dos veículos da concessionária.</p>
+        </div>
+
+        <section class="card-section">
+            <h2 class="section-title">Cadastrar Novo Veículo</h2>
+            <form id="form-veiculo">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="marca">Marca</label>
+                        <input type="text" id="marca" placeholder="Ex: Toyota" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="modelo">Modelo</label>
+                        <input type="text" id="modelo" placeholder="Ex: Corolla XEI" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="ano">Ano</label>
+                        <input type="number" id="ano" placeholder="Ex: 2023" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="preco">Preço (R$)</label>
+                        <input type="number" step="0.01" id="preco" placeholder="Ex: 120000.00" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="placa">Placa</label>
+                        <input type="text" id="placa" placeholder="Ex: ABC1D23" required>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Salvar Veículo</button>
+                </div>
+            </form>
+        </section>
+        
+        <section class="card-section">
+            <h2 class="section-title">Veículos Cadastrados</h2>
+            <div class="search-container">
+                <div class="input-group">
+                    <input type="text" id="input-busca" placeholder="Pesquisar por marca, modelo ou placa..." onkeyup="filtrarTabela()">
+                </div>
+                <div class="input-group" style="max-width: 200px;">
+                    <select id="filtro-status" onchange="filtrarTabela()">
+                        <option value="TODOS">Todos os Status</option>
+                        <option value="DISPONIVEL">Disponíveis</option>
+                        <option value="VENDIDO">Vendidos</option>
+                    </select>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="data-table" id="tabela-veiculos">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Ano</th>
+                            <th>Preço</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </main> 
+    <script src="veiculos.js"></script>
+    </body>
+</html>

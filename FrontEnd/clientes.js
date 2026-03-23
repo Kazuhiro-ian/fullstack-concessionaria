@@ -50,7 +50,6 @@ formCliente.addEventListener('submit', (event) => {
         return response.json();
     })
     .then(() => {
-        alert("Cliente cadastrado com sucesso!");
         formCliente.reset();
         carregarClientes(); // Atualiza a tabela
     })
@@ -75,6 +74,27 @@ function deletarCliente(id) {
         })
         .catch(err => console.error("Erro na requisição:", err));
     }
+}
+
+// --- FUNÇÃO DE BUSCA E FILTRO ---
+function filtrarTabela() {
+    // Pega o texto digitado e converte para minúsculo
+    const termoBusca = document.getElementById('input-busca').value.toLowerCase();
+    
+    // Pega todas as linhas da tabela de clientes
+    const linhas = document.querySelectorAll('#tabela-clientes tbody tr');
+
+    linhas.forEach(linha => {
+        // Pega todo o texto da linha (ID, Nome, CPF, Email)
+        const textoLinha = linha.innerText.toLowerCase();
+
+        // Se o texto da linha contiver o que foi digitado, mostra. Se não, esconde.
+        if (textoLinha.includes(termoBusca)) {
+            linha.style.display = "";
+        } else {
+            linha.style.display = "none";
+        }
+    });
 }
 
 // Inicia a lista quando a página carrega

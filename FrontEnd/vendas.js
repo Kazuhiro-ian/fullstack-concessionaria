@@ -151,3 +151,24 @@ async function carregarHistoricoVendas() {
         console.error("Erro ao carregar histórico de vendas:", error);
     }
 }
+
+// --- FUNÇÃO DE BUSCA E FILTRO ---
+function filtrarTabela() {
+    // Pega o texto digitado e converte para minúsculo
+    const termoBusca = document.getElementById('input-busca').value.toLowerCase();
+    
+    // Pega todas as linhas da tabela de histórico de vendas
+    const linhas = document.querySelectorAll('#tabela-vendas tbody tr');
+
+    linhas.forEach(linha => {
+        // Extrai todo o texto da linha (Data, Veículo, Cliente, Vendedor, Valor)
+        const textoLinha = linha.innerText.toLowerCase();
+
+        // Faz a verificação e exibe/oculta a linha instantaneamente
+        if (textoLinha.includes(termoBusca)) {
+            linha.style.display = "";
+        } else {
+            linha.style.display = "none";
+        }
+    });
+}

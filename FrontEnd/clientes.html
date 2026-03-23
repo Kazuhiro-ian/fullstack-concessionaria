@@ -55,6 +55,11 @@
 
         <section class="card-section">
             <h2 class="section-title">Clientes Cadastrados</h2>
+            <div class="search-container">
+                <div class="input-group">
+                    <input type="text" id="input-busca" placeholder="Pesquisar por nome, CPF ou e-mail..." onkeyup="filtrarTabela()">
+                </div>
+            </div>
             <div class="table-responsive">
                 <table class="data-table" id="tabela-clientes">
                     <thead>

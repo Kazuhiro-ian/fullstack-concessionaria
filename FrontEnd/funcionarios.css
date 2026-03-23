@@ -242,3 +242,23 @@ input:focus {
     background-color: var(--danger-color);
     color: white;
 }
+
+/* --- BARRA DE BUSCA --- */
+.search-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.search-container .input-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+#input-busca {
+    border-color: #cbd5e1;
+}

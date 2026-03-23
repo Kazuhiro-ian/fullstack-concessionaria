@@ -62,6 +62,18 @@
         
         <section class="card-section">
             <h2 class="section-title">Veículos Cadastrados</h2>
+            <div class="search-container">
+                <div class="input-group">
+                    <input type="text" id="input-busca" placeholder="Pesquisar por marca, modelo ou placa..." onkeyup="filtrarTabela()">
+                </div>
+                <div class="input-group" style="max-width: 200px;">
+                    <select id="filtro-status" onchange="filtrarTabela()">
+                        <option value="TODOS">Todos os Status</option>
+                        <option value="DISPONIVEL">Disponíveis</option>
+                        <option value="VENDIDO">Vendidos</option>
+                    </select>
+                </div>
+            </div>
             <div class="table-responsive">
                 <table class="data-table" id="tabela-veiculos">
                     <thead>
@@ -80,3 +92,7 @@
                 </table>
             </div>
         </section>
+    </main> 
+    <script src="veiculos.js"></script>
+    </body>
+</html>

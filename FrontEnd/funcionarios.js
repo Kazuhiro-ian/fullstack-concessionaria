@@ -70,4 +70,25 @@ function deletarFuncionario(id) {
     }
 }
 
+// --- FUNÇÃO DE BUSCA E FILTRO ---
+function filtrarTabela() {
+    // Pega o texto digitado e converte para minúsculo
+    const termoBusca = document.getElementById('input-busca').value.toLowerCase();
+    
+    // Pega TODAS as linhas apenas da tabela de funcionários
+    const linhas = document.querySelectorAll('#tabela-funcionarios tbody tr');
+
+    linhas.forEach(linha => {
+        // Extrai todo o texto da linha (ID, Nome, Matrícula, Cargo, Email)
+        const textoLinha = linha.innerText.toLowerCase();
+
+        // Faz a verificação e exibe/oculta a linha
+        if (textoLinha.includes(termoBusca)) {
+            linha.style.display = "";
+        } else {
+            linha.style.display = "none";
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', carregarFuncionarios);
